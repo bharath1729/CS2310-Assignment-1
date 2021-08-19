@@ -1,0 +1,23 @@
+CHIP q1A {
+
+    IN w,x,y,z;
+    OUT out;
+    PARTS:
+    Not(in=w, out=w1);
+    Not(in=x, out=x1);
+    Not(in=y, out=y1);
+    Not(in=z, out=z1);
+    
+    And(a=y, b=z, out=m1);
+    And(a=x, b=z1, out=m2);
+    And(a=w, b=z1, out=m3);
+
+    And(a=w1, b=x1, out=i1);
+    And(a=z, b=i1, out=m4);
+
+
+    Or(a=m1, b=m2, out=f1);
+    Or(a=m3, b=m4, out=f2);
+    Or(a=f1, b=f2, out=out);
+    
+}

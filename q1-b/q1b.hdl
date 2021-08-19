@@ -1,0 +1,40 @@
+CHIP q1b {
+
+    IN w,x,y,z;
+    OUT out;
+    PARTS:
+
+    Nand(a=w, b=w, out=w1);
+    Nand(a=x, b=x, out=x1);
+    Nand(a=y, b=y, out=y1);
+    Nand(a=z, b=z, out=z1);
+
+    Nand(a=y, b=z, out=i1);
+    Nand(a=i1, b=i1, out=m1);
+//
+    Nand(a=x, b=z1, out=i2);
+    Nand(a=i2, b=i2, out=m2);
+//
+    Nand(a=w, b=z1, out=i3);
+    Nand(a=i3, b=i3, out=m3);
+//
+    Nand(a=w1, b=x1, out=f1);
+    Nand(a=f1, b=f1, out=j1);
+
+    Nand(a=j1, b=z, out=k1);
+    Nand(a=k1, b=k1, out=m4);
+//
+    Nand(a=m1, b=m1, out=m11);
+    Nand(a=m2, b=m2, out=m21);
+    Nand(a=m3, b=m3, out=m31);
+    Nand(a=m4, b=m4, out=m41);
+
+    Nand(a=m11, b=m21, out=p1);
+    Nand(a=m31, b=m41, out=p2);
+
+    Nand(a=p1, b=p1, out=p11);
+    Nand(a=p2, b=p2, out=p21);
+    
+    Nand(a=p11, b=p21, out=out);
+    
+}
