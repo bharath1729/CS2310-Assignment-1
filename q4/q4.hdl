@@ -1,0 +1,16 @@
+CHIP q4 {
+
+    IN x1,x0;
+    OUT y0,y1,y2,y3;
+    PARTS:
+    //
+    And(a=x1, b=x0, out=y3);
+    //
+    Not(in=x0, out=x01);
+    And(a=x1, b=x01, out=y2);
+    //
+    Not(in=x1, out=x11);
+    And(a=x11, b=x0, out=y1);
+    //
+    And(a=x01, b=x11, out=y0);
+}
