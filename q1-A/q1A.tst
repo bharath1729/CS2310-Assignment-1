@@ -76,7 +76,7 @@ set w 1,
 set x 0,
 set y 1,
 set z 1,
-evxl,
+eval,
 output;
 
 
